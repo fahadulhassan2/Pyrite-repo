@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+  <title> Popup</title>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css" />
+  <link href="css/lightning-dash.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    body {
+      width: 285px;
+      height: 118px;
+      background-color: #1298f6;
+    }
+
+    .form-container {
+      padding: 10px 10px;
+      color: #087aea;
+   
+    }
+
+    .form {
+      padding: 0;
+    }
+
+    .checkbox-fields,
+    .form-fields {
+      margin-bottom: 5px;
+    }
+
+    .form-field,
+    .button-field {
+      width: 100%;
+    }
+
+    .button-field {
+      padding-top: 0;
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
+
+    /* .w-button {
+      width: 100%;
+    } */
+
+    .upperbuttons {
+      
+
+      margin-left: 36px;
+      margin-top: 7px;
+      text-align: center;
+      border-radius: 4px;
+
+    }
+
+    .lowerbutton{
+      
+      margin-top: 0px;
+    text-align: center;
+    border-radius: 4px;
+    POSITION: relative;
+    RIGHT: 9PX;
+    MARGIN-BOTTOM: 20PX;
+    }
+
+    select {
+      width: 100% !important;
+    }
+
+    #feedback {
+      color: #fff;
+      display: inline-block;
+    }
+
+    .feedback-good {
+      color: #27be67 !important;
+    }
+
+    .feedback-none {
+      color: #fff !important;
+    }
+
+    .feedback-bad {
+      color: #e32f2f !important;
+    }
+    .switch {
+      display: inline-block;
+      height: 15px;
+      position: relative;
+      width: 30px;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      background-color: #fff;
+      bottom: 0px;
+      content: "";
+      height: 14px;
+      left: 0px;
+      position: absolute;
+      transition: 0.4s;
+      width: 12px;
+    }
+
+    input:checked + .slider {
+      background-color: #087aea;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(18.5px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    .checkboxcontainer {
+      width: auto;
+      height: auto;
+    }
+    .rowcheck {
+      display: flex;
+      margin-top: 10px;
+    }
+    .rwpart {
+      width: auto;
+      display: -webkit-inline-box;
+    }
+  </style>
+   <script src="js/jquery.min.js"></script>
+
+   <script src="js/main.js"></script>
+ 
+
+    </head>
+    <body class="popup">
+        <div class="header">
+            <div class="form-container">
+                <div class="form w-form">
+                  <form class="form-content" method="get" action="">
+                    <input type="hidden" name="id" id="id" />
+               
+                    <div
+                    class="smallform"
+                    style="
+                      width: 229px;
+                      height: auto;
+                      background-color: #fff;
+                      border-radius: 6px;
+                      align-self: center;
+                      margin-left: 20px;
+                    "
+            >
+            <!-- <div
+            class="rwpart"
+            style="position: relative;
+            margin: 0 auto;
+            left: 52px;
+            top: 15px"
+    >
+      <label
+              class="switch"
+              for="enabled"
+              style="right: 12%; top: 3px"
+      >
+        <input type="checkbox" id="enabled" />
+        <div class="slider round"></div>
+      </label>
+      <label
+              style="font-size: 14px; font-weight: 500; color: rgb(102, 102, 102);font-family: Rubik;"
+      >Enable Extension</label
+      >
+
+    </div> -->
+            
+              <div class="form-fields" style="margin-bottom: 0px;margin-top: 12px;">
+                <div class="form-field" style="padding: 3px; margin-left: 14%;">
+                  <input
+                          type="text"
+                          class="field w-input"
+                          maxlength="256"
+                          name="price"
+                          data-name="price"
+                          id="price"
+                          style="
+                            background-color: #f2f3fa;
+                           
+                            padding: 11px;
+                            margin: 0 auto;
+                            font-size: 11px;
+                            font-family: Rubik;
+                            border-radius: 4px;
+                            width: 59%;
+
+                            color: rgb(83, 72, 72);
+                            border: 1px solid #f2f3fa;
+                            margin-top: 12px;
+                          "
+                          placeholder="Set Max Price"
+                  />
+                  
+                </div>
+                <button id="setP" class="upperbuttons" style="height: 31px;width: 157px;border: 1px solid #f2f3fa;cursor: pointer;color: darkgrey;font-size: 11px;">Set Max Price</button>
+              </div>
+   
+             
+            
+            
+              <div
+                      class="form-fields"
+                      style="width: 174px; height: auto; margin: 0 auto"
+              >
+                <div
+                        class="checkboxcontainer"
+                        style="width: auto; height: auto; margin-left: 11px;margin-bottom: 14px;"
+                >
+             
+                  
+                  </div>
+               
+                
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+    
+</html>

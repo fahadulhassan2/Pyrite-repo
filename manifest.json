@@ -1,0 +1,88 @@
+{
+    "name": "Autofill",
+    "version": "1.0.0",
+    "description": "Autofill!",
+    "permissions": ["storage", "unlimitedStorage", "alarms", "tabs", "contextMenus", "webRequest", "webRequestBlocking", "notifications", "cookies", "http://*/*", "https://*/*"],
+    "background": {
+        "scripts": ["js/main.js","background.js"],
+        "persistent": true
+    },
+    "icons": {
+        "16": "images/2.png",
+        "48": "images/2.png",
+        "128": "images/2.png"
+    },
+    "browser_action": {
+        "default_popup": "login.html"
+    },
+    "content_scripts": [
+    
+        {
+            "matches": ["*://*.google.com/forms/*/*"],
+            "js": ["scripts/common.js", "scripts/google.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        },
+        {
+            "matches": [
+              "https://*/*/checkouts/*",
+              "https://*/checkpoint*",
+              "https://*/cart*",
+              "https://*/account/login*",
+              "https://*/challenge",
+              "https://*.shopifycs.com/*",
+              "https://pay.shopify.com/transactions/new/token/*",
+              "https://shop.app/pay/transactions/new/token/*",
+              "https://*/*/checkouts/*",
+              "https://shopnicekicks.com/*",
+              "https://www.jimmyjazz.com/*"
+            ],
+            "exclude_matches": ["https://*/*/checkouts/*/thank_you"],
+            "js": [
+             
+              "scripts/shopify/flow.js"
+           
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+          },
+          {
+            "matches": ["https://*/products/*", "https://*/collections/*/products/*","https://shop.vikings.com/*/checkouts/*","http://xxredda.s3.amazonaws.com/"],
+            "js": [
+              
+       
+              "scripts/shopify/flow.js"
+           
+            
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+          },
+          {
+            "matches": ["http://www.footlocker.co.uk/", "http://images.footlocker.com/","http://sanl.footlocker.co.uk/","http://target.footlocker.co.uk/"],
+            "js": [
+              
+       
+           
+              "scripts/footsite.js"
+            
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+          },
+          {
+            "matches": [
+              "https://www.supremenewyork.com/shop/*",
+              "https://www.supremenewyork.com/checkout"
+            ],
+            "js": ["scripts/supreme/checkout.js"],
+            "run_at": "document_start",
+            "all_frames": true
+          }
+    ],
+    "content_security_policy":"script-src 'self' https://www.gstatic.com; object-src 'self'",
+    "manifest_version": 2
+}
+
+        
+    
